@@ -1,5 +1,5 @@
 module Guard
-  class I18nJs
+  class I18njs
     class Notifier
       class << self
         def guard_message(result, duration)

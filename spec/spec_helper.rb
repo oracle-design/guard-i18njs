@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "guard/i18n_js"
+require "guard/i18njs"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

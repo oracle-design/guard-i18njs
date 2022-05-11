@@ -2,7 +2,7 @@
 
 source "https://rubygems.org"
 
-# Specify your gem's dependencies in guard-i18n_js.gemspec
+# Specify your gem's dependencies in guard-i18njs.gemspec
 gemspec
 
 gem "rake", "~> 13.0"

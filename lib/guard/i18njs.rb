@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
-require_relative "i18n_js/version"
-require "guard"
+require_relative "i18njs/version"
+require "guard/plugin"
 require "i18n-js"
 
 module Guard
-  class I18nJs < Plugin
-    autoload :Notifier, "guard/i18n-js/notifier"
+  class I18njs < Plugin
+    autoload :Notifier, "guard/i18njs/notifier"
 
     def start
       export_locales_to_i18n_js
@@ -32,12 +32,19 @@ module Guard
       export_locales_to_i18n_js
     end
 
+    def run_on_removals(_paths = [])
+      export_locales_to_i18n_js
+    end
+
     private
 
     def export_locales_to_i18n_js
-      ::Guard::UI.info "Exporting i18n-js", reset: true
+      start_at = Time.now
+      ::Guard::UI.info "Start exporting i18n-js...🌏", reset: true
+      result = system %(bundle exec rake i18n:js:export)
+      Notifier.notify(result, Time.now - start_at)
 
-      system %(bundle exec rake i18n:js:export)
+      result
     end
   end
 end

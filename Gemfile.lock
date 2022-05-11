@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    guard-i18n_js (0.1.0)
+    guard-i18njs (0.1.0)
       guard
       i18n-js
 
@@ -88,10 +88,9 @@ PLATFORMS
   arm64-darwin-21
 
 DEPENDENCIES
-  guard-i18n_js!
+  guard-i18njs!
   rake (~> 13.0)
   rspec (~> 3.0)
-  rubocop (~> 1.21)
   standard
 
 BUNDLED WITH
